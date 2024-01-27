@@ -2,16 +2,16 @@ const express = require("express");
 const db = require("./config/db")
 const { userRouter } = require("./router/user.router");
 const { productRouter } = require("./router/product.router");
-const dotenv=require("dotenv")
+const dotenv = require("dotenv")
 
 dotenv.config()
-// const { authanticate } = require("./Middleware/authenticate.middleware");
-const cors=require("cors")
+
+const cors = require("cors")
 
 
 const app = express();
 app.use(cors({
-    origin:"*"
+    origin: "*"
 }))
 
 app.use(express.json());
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/user", userRouter)
-// app.use( authanticate)
+
 app.use("/product", productRouter)
 
 
@@ -40,12 +40,3 @@ app.listen(process.env.PORT, async () => {
 
 
 
-// {
-//     "title":"good product",
-//     "img":"product image url",
-//     "desc":"descreaption",
-//     "price":234
-
-// }
-
-// 65b3d6844901003709cdb7ca
